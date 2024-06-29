@@ -1,0 +1,51 @@
+<app-header></app-header>
+<div style="background-color: 
+#7f96ec;">
+    <h1 class="mt-5 text-center">Your wishlist</h1>
+    <section class="py-5">
+        <div class="container px-4 px-lg-5 mt-5">
+            <div
+                class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                <div class="col mb-5" *ngFor="let products of allproducts">
+                    <div class="card h-100 shadow">
+                        <!-- Product image-->
+                        <img class="card-img-top" [src]="products.image"
+                            width="400px" height="350px" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5
+                                    class="fw-bolder">{{products.title.slice(0,25)}}</h5>
+                                <!-- Product price-->
+                                $ {{products.price}}
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div
+                            class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="d-flex justify-content-between">
+                                <button (click)="removeItem(products._id)"
+                                    class="btn btn-outline-danger"><i
+                                        class="fa-solid fa-trash"></i></button>
+                                <button (click)="addToCart(products)"
+                                    class="btn btn-outline-success"><i
+                                        class="fa-solid fa-cart-shopping"></i></button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <div *ngIf="allproducts.length==0"
+        class="w-100 d-flex justify-content-center align-items-center flex-column">
+        <img src="https://www.qrcardboard.com/images/cart.gif?v=01" alt>
+        <h3>Your wishlist is empty ....</h3>
+        <button class="btn btn-success mt-3"><i
+                class="fa-solid fa-left-long me-2 "></i>  Back Home</button>
+    </div>
+</div>

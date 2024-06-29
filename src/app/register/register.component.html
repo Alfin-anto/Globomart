@@ -1,0 +1,41 @@
+<div class="d-flex align-items-center justify-content-center row" style="height: 90vh;background-color: #AD88C6;">
+    <div class="col-md-2"></div>
+    <div class="col-md-4 p-5 d-flex align-items-center justify-content-center shadow flex-column bg-body-secondary p-2"
+        style="height: 500px;">
+        <i class="fa-solid fa-user fa-2x border p-3 border-dark " style="border-radius: 50%;"></i>
+        <h1>Join Family </h1>
+        <form class="mt-5 shadow p-4 w-100" [formGroup]="registerForm" (ngSubmit)="register()">
+            <div class="mb-3">
+                <input formControlName="username" class="form-control mb-1" name="loginuser" type="text" placeholder="Enter username">
+                    <span *ngIf="registerForm.get('username')?.errors && registerForm.get('username')?.touched" class="text-danger">invalid username</span>
+            </div>
+            <div class="mb-3">
+                <input formControlName="email" class="form-control mb-1" name="loginemail" type="text" placeholder="Enter email">
+                <span *ngIf="registerForm.get('email')?.errors && registerForm.get('email')?.touched" class="text-danger">invalid email</span>
+            </div>
+            <div class="mb-2">
+                <input formControlName="password" class="form-control mb-1" name="loginPswd" type="password" placeholder="Enter Password">
+                <span *ngIf="registerForm.get('password')?.errors && registerForm.get('password')?.touched" class="text-danger">invalid password</span> 
+            </div>
+            <div>
+                <button type="submit" class="btn btn-success w-100">Register</button>
+            </div> 
+        </form>
+
+
+    </div>
+    <div class="col-md-4 text-light  text-center d-flex justify-content-center align-items-center flex-column"
+        style="height: 500px;background: url(https://i.pinimg.com/564x/fc/13/5b/fc135bf505834205d08d2e8bcf3ce2e7.jpg);background-position: center;background-size: cover;">
+        <h1 class="mb-3"><i class="fa-brands fa-slack me-2 text- "></i>Globomart</h1>
+        <h2 class="mb-5">Already Have an Account?</h2>
+        <p class="fw-bold">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt laboriosam dolore facilis ipsum
+            aspernatur, quo debitis fuga quas voluptatum nulla et totam fugiat distinctio praesentium autem ea? Soluta,
+            quae ullam.</p>
+
+        <button class="btn btn-light" routerLink="/user/login">Sign in</button>
+
+    </div>
+    <div class="col-md-2"></div>
+
+
+</div>

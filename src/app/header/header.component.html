@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand"><i class="fa-solid fa-basket-shopping"></i> Globomart</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse d-flex justify-content-end align-items-center" id="navbarSupportedContent">
+        
+        <form class="d-flex w-50" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-success" type="submit">Search</button>
+        </form>
+        <div class="d-flex">
+            <button routerLink="/wishlist" class="btn btn-outline-dark ms-3"><i class="fa-solid fa-heart me-2"></i>wishlist <span class="badge text-bg-secondary">{{wishlistCount}}</span></button>
+            <button routerLink="/cart" class="btn btn-outline-dark ms-3"><i class="fa-solid fa-cart-shopping me-2"></i>cart <span class="badge text-bg-secondary">{{cartCnt}}</span></button>
+            <a *ngIf="!loginUsername" routerLink="/user/login"><button class="btn btn-outline-dark ms-3"><i class="fa-solid fa-user me-2"></i>login</button></a>
+            <button *ngIf="loginUsername" class="btn btn-outline-dark ms-3"><i class="fa-solid fa-power-off me-2"></i>{{loginUsername}}</button>
+
+        </div>
+      </div>
+    </div>
+  </nav>
+

@@ -1,0 +1,53 @@
+<div class="d-flex align-items-center justify-content-center row"
+    style="height: 90vh; background-color: #7469B6;">
+    <div class="col-md-2"></div>
+    <div 
+        class="col-md-4 p-5 d-flex align-items-center justify-content-center shadow flex-column bg-body-secondary p-2"
+        style="height: 500px; background-color: #AD88C6;">
+        <i class="fa-solid fa-user fa-2x border p-3 border-dark "
+            style="border-radius: 50%;"></i>
+        <h1>Welcome User </h1>
+        <form class="mt-5 shadow p-4 w-100 shadow rounded"
+            [formGroup]="loginForm" (ngSubmit)="login()" >
+            <div class="mb-3">
+                <input class="form-control mb-1" name="loginemail" type="text"
+                    placeholder="Enter email" email required
+                    formControlName="email" name="email">
+                <span
+                    *ngIf="loginForm.get('email')?.errors && loginForm.get('email')?.touched"
+                    class="text-danger"> Invalid email </span>
+            </div>
+            <div class="mb-2">
+                <input class="form-control mb-1" name="loginPswd"
+                    type="password" placeholder="Enter Password"
+                    formControlName="password" name="password">
+                <span
+                    *ngIf="loginForm.get('password')?.errors && loginForm.get('password')?.touched"
+                    class="text-danger"> Invalid password </span>
+            </div>
+            <div>
+                <button type="submit"
+                    class="btn btn-success w-100">Login</button>
+            </div>
+        </form>
+
+    </div>
+    <div
+        class="col-md-4 text-light  text-center d-flex justify-content-center align-items-center flex-column"
+        style="height: 500px;background: url(https://i.pinimg.com/564x/fc/13/5b/fc135bf505834205d08d2e8bcf3ce2e7.jpg);background-position: center;background-size: cover;">
+        <h1 class="mb-3"><i
+                class="fa-brands fa-slack me-2 text- "></i>Globomart</h1>
+        <h2 class="mb-5">New to Globomart?</h2>
+        <p class="fw-bold">Lorem ipsum dolor sit amet consectetur adipisicing
+            elit. Sunt laboriosam dolore facilis ipsum
+            aspernatur, quo debitis fuga quas voluptatum nulla et totam fugiat
+            distinctio praesentium autem ea? Soluta,
+            quae ullam.</p>
+
+        <button class="btn btn-light" routerLink="/user/register">Sign
+            Up</button>
+
+    </div>
+    <div class="col-md-2"></div>
+
+</div>

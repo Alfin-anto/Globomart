@@ -1,0 +1,77 @@
+<app-header></app-header>
+<div class="row w-100" *ngIf="allProduct.length>0" style="background-color: 
+#7f96ec;">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+        <h1 class="text-center mt-3 text-light">Cart Summary</h1>
+        <div class="row" >
+            <div class="col-md-8 ">
+                <table class="table border shadow mt-5 rounded" >
+                    <thead>
+                        <tr>
+                            <th class="p-3">#</th>
+                            <th class="p-3">Product Name </th>
+                            <th class="p-3">Image </th>
+                            <th class="p-3">Quantity </th>
+                            <th class="p-3">Price </th>
+                            <th class="p-3">Action </th>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let product of allProduct; let i=index">
+                            <td>{{i+1}}</td>
+                            <td>{{product.title}}</td>
+                            <td>
+                                <img [src]="product.image" width="150px"
+                                    height="150" alt>
+                            </td>
+                            <td><div class="d-flex justify-content-center">
+                                    <button (click)="decrementItem(product._id)"
+                                        class="btn fs-3">-</button><input
+                                        readonly class="form-control"
+                                        [value]="product.quantity" id="counter"
+                                        type><button
+                                        (click)="incrementItem(product._id)"
+                                        class="btn fs-3">+</button>
+                                </div>
+                            </td>
+                            <td>{{product.price}}</td>
+                            <td>
+                                <button (click)="removeCartItem(product._id)"
+                                    class="btn btn-danger"><i
+                                        class="fa-regular fa-trash-can"></i></button>
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+                <div class="d-flex justify-content-center mt-4 mb-4">
+                    <button (click)="emptyCart()" class="btn btn-danger">Empty
+                        Cart</button>
+                    <button routerLink="/" class="btn btn-success ms-4">Back
+                        Home</button>
+                </div>
+
+            </div>
+            <div class="col-md-4">
+                <div class="shadow p-3 mt-5 rounded border">
+                    <h3 class="text-light">Grand Total : <span
+                            class="text-info">${{total}}</span></h3>
+                    <button routerLink="/checkout" class="btn btn-success mt-3"
+                        (click)="checkout()">Check out</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+</div>
+
+<div *ngIf="allProduct.length==0"
+    class="w-100 d-flex justify-content-center align-items-center flex-column mb-4">
+    <img src="https://www.qrcardboard.com/images/cart.gif?v=01" alt>
+    <h3>Your cart is empty ....</h3>
+    <button routerLink="/" class="btn btn-success mt-3"><i
+            class="fa-solid fa-left-long"></i>Back Home</button>
+</div>
